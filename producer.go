@@ -67,6 +67,11 @@ func (p *Producer) EnqueueIn(queue, class string, in float64, args interface{}) 
 	return p.EnqueueWithOptions(queue, class, args, EnqueueOptions{At: nowToSecondsWithNanoPrecision() + in})
 }
 
+func (p *Producer) EnqueueInWithOptions(queue, class string, in float64, args interface{}, opts EnqueueOptions) (string, error) {
+	opts.At = nowToSecondsWithNanoPrecision() + in
+	return p.EnqueueWithOptions(queue, class, args, opts)
+}
+
 func (p *Producer) EnqueueAt(queue, class string, at time.Time, args interface{}) (string, error) {
 	return p.EnqueueWithOptions(queue, class, args, EnqueueOptions{At: timeToSecondsWithNanoPrecision(at)})
 }
