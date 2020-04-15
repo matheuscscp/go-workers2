@@ -3,8 +3,8 @@ package workers
 import (
 	"testing"
 
-	"github.com/digitalocean/go-workers2/storage"
 	"github.com/go-redis/redis"
+	"github.com/matheuscscp/go-workers2/storage"
 	"github.com/stretchr/testify/assert"
 )
 
